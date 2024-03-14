@@ -25,7 +25,8 @@ module.exports = {
       "error",
       {
         "endOfLine": "auto"
-      }
-    ]
-  },
+      },
+    ],
+    "indent": ["error", 2]
+  }
 };

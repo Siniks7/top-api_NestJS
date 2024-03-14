@@ -1,17 +1,14 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
-import { SuccessResponse } from 'src/helpers/success.response';
-import { DeleteReviewDto } from './dto/delete-review.dto';
-import { SaveReviewDto } from './dto/save-review.dto';
-import { ReviewModel } from './review.model';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common'
+import { ReviewModel } from './review.model'
 
 @Controller('review')
 export class ReviewController {
-  @Get('get/:productId')
-  async get(@Param('productId') productId: string): Promise<ReviewModel[]> {}
+  @Post('create')
+  async create(@Body() dto: Omit<ReviewModel, '_id'>) {}
 
-  @Post('save')
-  async save(@Body() dto: SaveReviewDto): Promise<ReviewModel> {}
+  @Delete(':id')
+  async delete(@Param('id') id: string) {}
 
-  @Delete('delete')
-  async delete(@Body() dto: DeleteReviewDto): Promise<SuccessResponse> {}
+  @Get('byProduct/:productId')
+  async getByProduct(@Param('productId') productId: string) {}
 }

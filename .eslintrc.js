@@ -32,6 +32,7 @@ module.exports = {
 		'semi': ['error', 'always', { 'omitLastInOneLineBlock': false }],
 		'comma-dangle': ['error', 'never'],
 		'quotes': ['error', 'single'],
-		'indent': ['error', 'tab']
+		'indent': ['error', 'tab'],
+		'@typescript-eslint/no-unsafe-declaration-merging': 'off'
 	}
 };

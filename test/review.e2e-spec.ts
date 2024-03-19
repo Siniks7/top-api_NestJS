@@ -6,6 +6,7 @@ import { Types, disconnect } from 'mongoose';
 import { REVIEW_NOT_FOUND } from '../src/review/review.constants';
 import { Test, TestingModule } from '@nestjs/testing';
 
+
 const productId = new Types.ObjectId().toHexString();
 
 jest.setTimeout(30000);
@@ -50,6 +51,7 @@ describe('AppController (e2e)', () => {
 			.expect(200)
 			.then(({ body }: request.Response) => {
 				expect(body.length).toBe(1);
+				console.log(body);				
 				done();
 			});
 	});

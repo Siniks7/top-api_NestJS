@@ -45,6 +45,17 @@ describe('AppController (e2e)', () => {
 			});
 	});
 
+	it('/review/create (POST) - fail', async (done) => {
+		return request(app.getHttpServer())
+			.post('/review/create')
+			.send({ ...testDto, rating: 0 })
+			.expect(400)
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			.then(({ body }: request.Response) => {
+				done();
+			});
+	});
+
 	it('/review/byProduct/:productId (GET) - success', async (done) => {
 		return request(app.getHttpServer())
 			.get('/review/byProduct/' + productId)
@@ -55,6 +66,7 @@ describe('AppController (e2e)', () => {
 				done();
 			});
 	});
+
 
 	it('/review/byProduct/:productId (GET) - fail', async (done) => {
 		return request(app.getHttpServer())

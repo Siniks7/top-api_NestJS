@@ -1,4 +1,17 @@
 {
+    "roots": [
+        "<rootDir>/../",
+        "<rootDir>/../src"
+    ],
+    "modulePaths": [
+        "<rootDir>/../src",
+        "<rootDir>/../"
+    ],
+    "moduleDirectories": [
+        "node_modules",
+        "<rootDir>/../src",
+        "<rootDir>/../"
+    ],
     "moduleFileExtensions": [
         "js",
         "json",

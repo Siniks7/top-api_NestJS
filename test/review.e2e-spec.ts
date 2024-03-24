@@ -75,8 +75,7 @@ describe('AppController (e2e)', () => {
 			.get('/review/byProduct/' + productId)
 			.expect(200)
 			.then(({ body }: request.Response) => {
-				expect(body.length).toBe(1);
-				console.log(body);				
+				expect(body.length).toBe(1);		
 				done();
 			});
 	});

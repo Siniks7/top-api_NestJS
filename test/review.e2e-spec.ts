@@ -10,8 +10,8 @@ import * as request from 'supertest';
 const productId = new Types.ObjectId().toHexString();
 
 const loginDto: AuthDto = {
-	login: 'a@a.ru',
-	password: '1'
+	login: 'siniks7@yandex.ru',
+	password: '434543'
 };
 
 
@@ -37,6 +37,10 @@ describe('AppController (e2e)', () => {
 		}).compile();
 		app = moduleFixture.createNestApplication();
 		await app.init();
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		const registration = await request(app.getHttpServer())
+			.post('/auth/register')
+			.send(loginDto);
 		const { body } = await request(app.getHttpServer())
 			.post('/auth/login')
 			.send(loginDto);

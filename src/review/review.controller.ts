@@ -1,5 +1,6 @@
 import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, UseGuards, UsePipes, ValidationPipe } from '@nestjs/common';
 import { JwtAuthGuard } from 'src/auth/guards/jwt.guard'; // Ошибка импорта
+import { IdValidationPipe } from 'src/pipes/ad-validation.pipe';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { REVIEW_NOT_FOUND } from './review.constants';
 import { ReviewService } from './review.service';
@@ -16,16 +17,16 @@ export class ReviewController {
 
   @UseGuards(JwtAuthGuard)
 	@Delete(':id')
-  async delete(@Param('id') id: string) { const deletedDoc = await this.reviewService.delete(id);if (!deletedDoc) {throw new HttpException(REVIEW_NOT_FOUND, HttpStatus.NOT_FOUND);
+  async delete(@Param('id', IdValidationPipe) id: string) { const deletedDoc = await this.reviewService.delete(id);if (!deletedDoc) {throw new HttpException(REVIEW_NOT_FOUND, HttpStatus.NOT_FOUND);
   }}
 
   @Get('byProduct/:productId')
-  async getByProduct(@Param('productId') productId: string) {return this.reviewService.findByProductId(productId);
+  async getByProduct(@Param('productId', IdValidationPipe) productId: string) {return this.reviewService.findByProductId(productId);
   }
   
    @UseGuards(JwtAuthGuard)
   @Delete(':id')
-  async deleteByProductId(@Param('id') productId: string) { const deletedDoc = await this.reviewService.deleteByProductId(productId);if (!deletedDoc) {throw new HttpException('Продукт не найден', HttpStatus.NOT_FOUND);
+  async deleteByProductId(@Param('id', IdValidationPipe) productId: string) { const deletedDoc = await this.reviewService.deleteByProductId(productId);if (!deletedDoc) {throw new HttpException('Продукт не найден', HttpStatus.NOT_FOUND);
   }}
 
 

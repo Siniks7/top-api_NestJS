@@ -41,6 +41,12 @@ export class CreateTopPageDto {
 		title: string;
 
 	@IsString()
+		metaTitle: string;
+
+	@IsString()
+		metaDescription: string;
+
+	@IsString()
 		category: string;
 
 	@IsOptional()

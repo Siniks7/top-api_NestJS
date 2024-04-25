@@ -12,6 +12,13 @@ export class TopPageController {
 	constructor(private readonly topPageService: TopPageService) { }
 
 	@UseGuards(JwtAuthGuard)
+	@UsePipes(new ValidationPipe())
+	@Post('create')
+	async create(@Body() dto: CreateTopPageDto) {
+		return this.topPageService.create(dto);
+	}
+
+	@UseGuards(JwtAuthGuard)
   @Get(':id')
 	async get(@Param('id', IdValidationPipe) id: string) {
 		const page = await this.topPageService.findById(id);
@@ -39,6 +46,7 @@ export class TopPageController {
   	}
   }
 
+  @UsePipes(new ValidationPipe())
   @UseGuards(JwtAuthGuard)
   @Patch(':id')
   async patch(@Param('id') id: string, @Body() dto: CreateTopPageDto) {

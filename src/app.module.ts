@@ -6,6 +6,7 @@ import { getMongoConfig } from './configs/mongo.config';
 import { ProductModule } from './product/product.module';
 import { ReviewModule } from './review/review.module';
 import { TopPageModule } from './top-page/top-page.module';
+import { FilesModule } from './files/files.module';
 
 @Module({
 	imports: [
@@ -18,7 +19,8 @@ import { TopPageModule } from './top-page/top-page.module';
 		AuthModule,
 		TopPageModule,
 		ProductModule,
-		ReviewModule
+		ReviewModule,
+		FilesModule
 	]
 })
 

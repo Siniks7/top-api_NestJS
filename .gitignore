@@ -3,8 +3,8 @@
 /node_modules
 /build
 /uploads
-.env
 /mongo-data
+.env
 # Logs
 logs
 *.log

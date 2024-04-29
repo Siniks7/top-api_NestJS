@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ScheduleModule } from '@nestjs/schedule';
 import { TypegooseModule } from 'nestjs-typegoose';
 import { AuthModule } from './auth/auth.module';
 import { getMongoConfig } from './configs/mongo.config';
@@ -13,6 +14,7 @@ import { TopPageModule } from './top-page/top-page.module';
 
 @Module({
 	imports: [
+		ScheduleModule.forRoot(),
 		HhModule, 
 		ConfigModule.forRoot(),
 		TypegooseModule.forRootAsync({

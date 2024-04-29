@@ -41,6 +41,8 @@ export class TopPageModel extends TimeStamps {
 	@prop({ enum: TopLevelCategory })
 		firstCategory: TopLevelCategory;
 
+	typegooseName: string;
+
 	@prop()
 		secondCategory: string;
 

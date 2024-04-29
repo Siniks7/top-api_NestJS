@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { getMongoConfig } from './configs/mongo.config';
 import { getTelegramConfig } from './configs/telegram.config';
 import { FilesModule } from './files/files.module';
+import { HhModule } from './hh/hh.module';
 import { ProductModule } from './product/product.module';
 import { ReviewModule } from './review/review.module';
 import { TelegramModule } from './telegram/telegram.module';
@@ -12,6 +13,7 @@ import { TopPageModule } from './top-page/top-page.module';
 
 @Module({
 	imports: [
+		HhModule, 
 		ConfigModule.forRoot(),
 		TypegooseModule.forRootAsync({
 			imports: [ConfigModule],
